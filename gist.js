@@ -8,4 +8,4 @@ from os.path import isdir, isfile, join, basename, dirname
 from os import makedirs
 from shutil import copyfile
 
-</code></pre>`)
+</code></pre>`);
