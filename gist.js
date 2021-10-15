@@ -42,7 +42,7 @@ from shutil import copyfile
 #  2. Provide support for .md files that are written as READMEs in a GitHub
 #     repo.
 #
-#  Only use these changes if using the extension ``recommonmark``.
+#  Only use these changes if using the extension recommonmark.
 #
 ##############################################################################
 
@@ -113,7 +113,7 @@ def fixLocalMDAnchors(app, doctree, docname):
             #
             # Only include this code if .md files are being converted to html
             #
-            # Example: `Google Cloud Engine <gce.md>`__
+            # Example: Google Cloud Engine <gce.md>__
             #          [configuration options](autotest.md#configuration-options)
             #
                 node['refuri'] = node['refuri'].replace('.md','.html')
