@@ -27,7 +27,7 @@ jobs:
       - name: Deploy
         uses: exuanbo/actions-deploy-gist@v1
         with:
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           gist_id: https://gist.github.com/docsAndStuff
           gist_file_name: readme.rst
           file_path: ./readme.rst
