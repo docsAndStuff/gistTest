@@ -2,50 +2,13 @@
   <head>
     <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
-    <script>
-        function resetCodeBlock(codeElement, hljsObject){
-            codeElement.innerHTML = hljsObject.value;
-            codeElement.classList.remove('language-undefined');
-            langClass = 'language-' + hljsObject.language;
-            codeElement.classList.add(langClass);
-            codeElement.classList.add('hljs');
-            codeElement.classList.remove('remote');
-            console.log('append class: ' + langClass);
-        }
-        function getCodeSnippets(){
-        var codeBlocks = document.getElementsByClassName('remote');
-        if(codeBlocks.length > 0){
-            for (var i=0; i<codeBlocks.length; i=i+1){
-                codeBlock = codeBlocks[i];
-                if ('source' in codeBlock.attributes){
-                    codeSource = codeBlock.attributes['source'];
-                    console.log(codeSource.textContent);
-                    fetch(codeSource.textContent)
-                        .then(response => response.text())
-                        .then(respText => hljs.highlightAuto(respText))
-                        .then(data => resetCodeBlock(codeBlock,data));
-                }
-            }
-        }
-    }</script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="snatchsnippets.js"></script>
   </head>
   <body>
     <p>This is where we intro the code: </p>
-    <pre><code class="remote" source="snippet.py"></code></pre>
+    <pre><code class="remote" source="https://raw.githubusercontent.com/docsAndStuff/gistTest/main/snippet.py"></code></pre>
     <p>Make your own gists...</p>
-    <pre><code>import os
-import sys
-import subprocess
-
-def whereis(binary):
-    command = 'which' if os.name != 'nt' else 'where'
-    try:
-        sub = subprocess.run([command, binary], text=True, capture_output=True)
-        return sub.stdout
-    except BaseException as e:
-        print(f"Warning: {binary} is not found")
-        return ''</code></pre>
     <script type="text/javascript">getCodeSnippets();
     hljs.highlightAll();</script>
   </body>
